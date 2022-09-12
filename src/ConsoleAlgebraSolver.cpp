@@ -21,6 +21,7 @@ Matrix matrixMenu();
 
 int main()
 {
+
 	std::cout << "    _    _            _                 ____        _\n"
 		<< "   / \\  | | __ _  ___| |__  _ __ __ _  / ___|  ___ | |_   _____ _ __\n"
 		<< "  / _ \\ | |/ _` |/ _ \\ '_ \\| '__/ _` | \\___ \\ / _ \\| \\ \\ / / _ \\ '__|\n"
@@ -244,8 +245,6 @@ void SleMenu() {
 	b.print();
 
 	sleSolution solution = Matrix::solveSLE(A, b, &x);
-
-	std::cout << "whats up yo\n" << std::endl;
 }
 
 void determinantMenu() {

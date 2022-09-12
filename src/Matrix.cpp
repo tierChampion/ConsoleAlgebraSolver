@@ -12,7 +12,8 @@ namespace als {
 	* @param width of matrix (n)
 	*/
 	Matrix::Matrix(int m, int n) : _m(m), _n(n) {
-		_A = std::shared_ptr<double>(new double[_m * _n]);
+
+		_A = std::shared_ptr<double[]>(new double[_m * _n]);
 	}
 
 	/**
@@ -21,7 +22,7 @@ namespace als {
 	*/
 	Matrix Matrix::Identity(int dim) {
 
-		Matrix I(dim, dim);
+		Matrix I = Matrix::Null(dim);
 
 		for (int d = 0; d < dim; d++) {
 			I(d, d) = 1;
@@ -50,9 +51,11 @@ namespace als {
 	*
 	* @param data to put in the matrix
 	*/
-	void Matrix::fill(std::shared_ptr<double> B) {
+	void Matrix::fill(double* B) {
 
-		_A = B;
+		for (int a = 0; a < _m * _n; a++) {
+			_A.get()[a] = B[a];
+		}
 	}
 
 	/**
@@ -136,7 +139,7 @@ namespace als {
 			return 0;
 		}
 
-		return _A.get()[a];
+		return _A[a];
 	}
 
 	/**
@@ -149,7 +152,7 @@ namespace als {
 			exit(-1);
 		}
 
-		return _A.get()[a];
+		return _A[a];
 	}
 
 	/**
@@ -163,7 +166,7 @@ namespace als {
 			return 0;
 		}
 
-		return _A.get()[j * _n + i];
+		return _A[j * _n + i];
 	}
 
 	/**
@@ -177,7 +180,7 @@ namespace als {
 			exit(-1);
 		}
 
-		return _A.get()[j * _n + i];
+		return _A[j * _n + i];
 	}
 
 	/**

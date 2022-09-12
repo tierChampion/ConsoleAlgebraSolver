@@ -139,8 +139,6 @@ namespace als {
 
 		Matrix Aji = Matrix::subMatrix((*this), j, i);
 
-		Aji.print();
-
 		return sign * determinant(Aji);
 	}
 }

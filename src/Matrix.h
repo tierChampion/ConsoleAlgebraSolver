@@ -15,14 +15,14 @@ namespace als {
 	class Matrix {
 
 		int _m, _n;
-		std::shared_ptr<double> _A;
+		std::shared_ptr<double[]> _A;
 
 	public:
 
 		Matrix(int m, int n);
 		static Matrix Identity(int dim);
 		static Matrix Null(int dim);
-		void fill(std::shared_ptr<double> B);
+		void fill(double* B);
 		void print() const;
 
 		int rowCount() const { return _m; }

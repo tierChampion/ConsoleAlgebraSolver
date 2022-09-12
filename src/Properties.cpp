@@ -94,7 +94,7 @@ namespace als {
 
 		Matrix nil(_m, _n);
 
-		nil.fill(_A);
+		nil.fill(_A.get());
 
 		for (int l = 0; l < level - 1; l++) {
 			nil = nil * nil;

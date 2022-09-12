@@ -56,7 +56,7 @@ namespace als {
 		double k = 1;
 
 		Matrix ret = Matrix(A.rowCount(), A.colCount());
-		ret.fill(A._A);
+		ret.fill(A._A.get());
 
 		// Gauss Reduction
 		while (equation < ret.rowCount()) {
